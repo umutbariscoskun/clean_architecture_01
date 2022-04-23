@@ -26,46 +26,48 @@ class _HomeViewState extends ViewState<HomeView, HomeController> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ControlledWidgetBuilder<HomeController>(
-                    builder: (context, controller) {
-                  if (controller.todos != null &&
-                      controller.todos!.isNotEmpty) {
-                    return Expanded(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          for (int i = 0; i < controller.todos!.length; i++)
-                            Center(
-                              child: Column(
-                                children: [
-                                  Text(
-                                    controller.todos![i].title,
-                                    style: TextStyle(
-                                      fontSize: 36,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.black,
+                  builder: (context, controller) {
+                    if (controller.todos != null &&
+                        controller.todos!.isNotEmpty) {
+                      return Expanded(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            for (int i = 0; i < controller.todos!.length; i++)
+                              Center(
+                                child: Column(
+                                  children: [
+                                    Text(
+                                      controller.todos![i].title,
+                                      style: TextStyle(
+                                        fontSize: 36,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                      ),
                                     ),
-                                  ),
-                                  Text(
-                                    controller.todos![i].description,
-                                    style: TextStyle(
-                                      fontSize: 24,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.black,
+                                    Text(
+                                      controller.todos![i].description,
+                                      style: TextStyle(
+                                        fontSize: 24,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                      ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            )
-                        ],
-                      ),
-                    );
-                  } else {
-                    return Center(
+                                  ],
+                                ),
+                              )
+                          ],
+                        ),
+                      );
+                    } else {
+                      return Center(
                         child: CircularProgressIndicator(
-                      color: Colors.blue,
-                    ));
-                  }
-                })
+                          color: Colors.blue,
+                        ),
+                      );
+                    }
+                  },
+                ),
               ],
             ),
           ),

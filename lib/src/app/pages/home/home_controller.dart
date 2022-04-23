@@ -6,10 +6,11 @@ import 'package:flutter_clean_architecture/flutter_clean_architecture.dart';
 class HomeController extends Controller {
   final HomePresenter _presenter;
 
-  HomeController(TodoRepository _todoRepository)
-      : _presenter = HomePresenter(_todoRepository);
+  HomeController(TodoRepository _toDoRepository)
+      : _presenter = HomePresenter(_toDoRepository);
 
   List<TodoModel>? todos;
+  
   @override
   void onInitState() {
     _presenter.getTodos();

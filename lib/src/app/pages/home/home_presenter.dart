@@ -9,8 +9,8 @@ class HomePresenter extends Presenter {
 
   final GetTodos _getTodos;
 
-  HomePresenter(TodoRepository _todoRepository)
-      : _getTodos = GetTodos(_todoRepository);
+  HomePresenter(TodoRepository _toDoRepository)
+      : _getTodos = GetTodos(_toDoRepository);
 
   void getTodos() {
     _getTodos.execute(_GetTodosObserver(this));
