@@ -10,7 +10,7 @@ class HomeController extends Controller {
       : _presenter = HomePresenter(_toDoRepository);
 
   List<TodoModel>? todos;
-  
+
   @override
   void onInitState() {
     _presenter.getTodos();
@@ -25,6 +25,15 @@ class HomeController extends Controller {
     };
 
     _presenter.getTodosOnError = (e) {};
+
+    _presenter.removeTodoOnComplete = () {};
+
+    _presenter.removeTodoOnError = (e) {};
+  }
+
+  void removeTodo(String todoId) {
+    _presenter.removeTodo(todoId);
+    refreshUI();
   }
 
   @override
